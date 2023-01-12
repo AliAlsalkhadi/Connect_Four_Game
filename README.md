@@ -1,5 +1,5 @@
 # Connect Four
-Connect Four is a classic two-player game where players take turns dropping shaps into a vertical grid. The goal of the game is to connect four of your own shaps in a row, either horizontally, vertically, or diagonally.
+Connect Four is a classic two-player game where players take turns dropping shapes into a vertical grid. The goal of the game is to connect four of your own shape in a row, either horizontally, vertically, or diagonally.
 
 This implementation of Connect Four is written in C and can be played on the command line.
 
