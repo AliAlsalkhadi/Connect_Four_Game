@@ -4,14 +4,8 @@
 #include <stdbool.h>
 #include <assert.h>
 
-// make_move(board , column , player) updates the board following a move
-// by the given player in the given column; returns false if the move
-// was illegal because the column was full
-// requires: 0 <= column < 7
-// player is either 'X' or 'O'
 bool make_move(char board[6][7], int column, char player);
-// check_win(board) returns true if the given player has 4 connected
-// pieces on the board
+
 bool check_win(char board[6][7], char player);
 bool check_horizontal(char board[6][7], char player, int row, int column);   
 bool check_vertical(char board[6][7], char player, int row, int column);    
@@ -20,18 +14,8 @@ bool check_diag_down(char board[6][7], char player, int row, int column);
 bool check_tie(char board[6][7]);
 void game_board(char board[6][7]);
 
-// first_capital(str, n) returns the first capital letter in str;
-//   returns 0 if str contains no capital letters
-// requires: str is a string of length n
-//           str contains only lower-case and upper-case letters
-//           all lower-case letters appear before upper-case letters
 char first_capital(const char str[], int n);
 
-// deepest_substring(str, out) updates out to be the deepest substring of
-//   str; the first is used if multiple possibilities exist
-// requires:
-//   str is a string with balanced parenthesis
-//   out points to enough memory to store the deepest substring of str
 void deepest_substring(const char str[], char out[]);
 
 int main(void) {
@@ -189,7 +173,6 @@ bool make_move(char board[6][7], int column, char player) {
   return false;
 }
 
-//This will check if there are 4 of the same pieces which will win the game
 bool check_win(char board[6][7], char player) {
   bool win;
   for(int i=0; i<6; i++) {
@@ -225,7 +208,6 @@ bool check_win(char board[6][7], char player) {
   return false;        
 }
 
-//This will check if there are 4 of the same pieces in a vertical
 bool check_vertical(char board[6][7], char player, int row, int column) {
   if(board[row][column] == player && board[row + 1][column] == player && board[row + 2][column] == player && board[row + 3][column] == player) {
     return true;
@@ -233,7 +215,6 @@ bool check_vertical(char board[6][7], char player, int row, int column) {
   return false;
 }
 
-//This will check if there are 4 of the same pieces in a horizontal
 bool check_horizontal(char board[6][7], char player, int row, int column) {
   if(board[row][column] == player && board[row][column + 1] == player && board[row][column + 2] == player && board[row][column + 3] == player) {
     return true;           
@@ -241,7 +222,6 @@ bool check_horizontal(char board[6][7], char player, int row, int column) {
   return false;
 }
 
-//This will check if there are 4 of the same pieces in a diagonal up
 bool check_diag_up(char board[6][7], char player, int row, int column) {
   if(board[row][column] == player && board[row - 1][column + 1] == player && board[row - 2][column + 2] == player && board[row - 3][column + 3] == player) {
     return true;
@@ -249,7 +229,6 @@ bool check_diag_up(char board[6][7], char player, int row, int column) {
   return false;
 }
 
-//This will check if there are 4 of the same pieces in a diagonal down
 bool check_diag_down(char board[6][7], char player, int row, int column) {
   if(board[row][column] == player && board[row + 1][column + 1] == player && board[row + 2][column + 2] == player && board[row + 3][column + 3] == player) {
     return true;
@@ -257,7 +236,6 @@ bool check_diag_down(char board[6][7], char player, int row, int column) {
   return false;
 }
 
-//This will check if there is no more space on the board
 bool check_tie(char board[6][7]) {
   for(int i = 0; i < 6; i++) {
     for(int j = 0; j < 7; j++) {
@@ -269,7 +247,6 @@ bool check_tie(char board[6][7]) {
   return true;
 }
 
-//This will keep updating the game board with each move
 void game_board(char board[6][7]) {
   for(int y = 0; y < 6; y ++) {
     printf("%c %c %c %c %c %c %c\n",board[y][0],board[y][1],board[y][2],board[y][3],board[y][4],board[y][5],board[y][6]);
