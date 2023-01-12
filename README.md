@@ -1,4 +1,4 @@
-Connect Four
+#Connect Four
 Connect Four is a classic two-player game where players take turns dropping colored disks into a vertical grid. The goal of the game is to connect four of your own disks of the same color in a row, either horizontally, vertically, or diagonally.
 
 This implementation of Connect Four is written in C and can be played on the command line.
